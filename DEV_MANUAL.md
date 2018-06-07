@@ -83,4 +83,12 @@ ZAY_VIEW_API OnGesture(...)
 ZAY_VIEW_API OnRender(...)
 ~~~
 
+* Dependency : 
 
+~~~
+[service/boss_zay.hpp] <-- [helloworld.hpp] <-- [helloworld.cpp]
+                    ^
+                    ㄴ---- [boss_zay.cpp]
+~~~                    
+
+프로젝트 측에서는 boss_zay.cpp 구현을 사용 안함.

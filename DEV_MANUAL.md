@@ -44,3 +44,15 @@
 void PlatformInit() { ... }
 void PlatformQuit() { ... }
 ~~~
+
+* Event Phase : 
+
+~~~cpp
+// Boss2D/helloworld/source/helloworld.cpp
+
+ZAY_VIEW_API OnCommand(...)
+ZAY_VIEW_API OnNotify(...)
+ZAY_VIEW_API OnGesture(...)
+ZAY_VIEW_API OnRender(...)
+~~~
+

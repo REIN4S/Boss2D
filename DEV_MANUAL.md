@@ -1,6 +1,8 @@
 # QT Platform
 
-* Entry Point : 
+## Entry Point
+
+* Framework Side : 
 
 ~~~cpp
 // Boss2D/Boss2D/platform/boss_platform_qt5.cpp
@@ -45,7 +47,32 @@ void PlatformInit() { ... }
 void PlatformQuit() { ... }
 ~~~
 
-* Event Phase : 
+## Event Phase
+ 
+* Framework Side : 
+
+~~~cpp
+// Boss2D/Boss2D/service/boss_zay.hpp
+// LINE 119 ~ 142 : 이벤트 함수 선언.
+#define ZAY_VIEW_API static void
+#define ZAY_DECLARE_VIEW(NAME) ZAY_DECLARE_VIEW_CLASS(NAME, ZayObject)
+#define ZAY_DECLARE_VIEW_CLASS(NAME, CLASS) \
+    ZAY_VIEW_API OnCommand(CommandType, chars, id_share, id_cloned_share*); \
+    ZAY_VIEW_API OnNotify(chars, chars, id_share, id_cloned_share*); \
+    ZAY_VIEW_API OnGesture(GestureType, sint32, sint32); \
+    ZAY_VIEW_API OnRender(ZayPanel&); \
+    ...
+
+// Boss2D/Boss2D/service/boss_zay.cpp
+// LINE 5 ~ 9 : 이벤트 함수 정의.
+ZAY_VIEW_API OnCommand(CommandType, chars, id_share, id_cloned_share*) {}
+ZAY_VIEW_API OnNotify(chars, chars, id_share, id_cloned_share*) {}
+ZAY_VIEW_API OnGesture(GestureType, sint32, sint32) {}
+ZAY_VIEW_API OnRender(ZayPanel& panel)
+{ZAY_RGB(panel, 0x80, 0x80, 0x80) panel.fill();}
+~~~
+
+* Project Side : 
 
 ~~~cpp
 // Boss2D/helloworld/source/helloworld.cpp
@@ -55,4 +82,5 @@ ZAY_VIEW_API OnNotify(...)
 ZAY_VIEW_API OnGesture(...)
 ZAY_VIEW_API OnRender(...)
 ~~~
+
 

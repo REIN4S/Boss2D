@@ -35,3 +35,12 @@
     }
 #endif
 ~~~
+
+* Project Side : 
+
+~~~cpp
+// Boss2D/helloworld/source/main.cpp
+
+void PlatformInit() { ... }
+void PlatformQuit() { ... }
+~~~

@@ -1,5 +1,16 @@
 # QT Platform
 
+~~~
+Disorder
+ ^
+ |
+ |  Event Phase
+ |--------------------
+ |
+ |  Seq.  Phase
+ ---------------------> time
+~~~
+
 ## Entry Point
 
 * Framework Side : 
